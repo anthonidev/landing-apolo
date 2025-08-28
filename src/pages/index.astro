@@ -1,16 +1,41 @@
 ---
-
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import HeroSection from "../components/HeroSection.astro";
+import AvancesObras from "../components/AvancesObras.astro";
+import AtributosCondominio from "../components/AtributosCondominio.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Landing Apolo - Arena y Sol tu casa a pasos de la playa</title>
+  </head>
+  <body>
+    <div
+      class="bg-cover bg-center bg-no-repeat flex flex-col min-h-[600px]"
+      style="background-image: url('/images/hero-banner.png');"
+    >
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="relative z-10 flex flex-col">
+        <Navbar />
+        <HeroSection />
+      </div>
+    </div>
+
+    <!-- Avance de obras -->
+    <div class="global-background min-h-[3000px]">
+      <AvancesObras />
+      <AtributosCondominio />
+    </div>
+  </body>
 </html>

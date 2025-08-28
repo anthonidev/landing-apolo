@@ -1,0 +1,119 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+const atributosData = [
+  {
+    id: 1,
+    url: "/images/atributos/gym.png",
+    title: "Gimnasio al aire libre",
+    icon: "/icons/gym.svg",
+  },
+  {
+    id: 2,
+    url: "/images/atributos/mini-golf.png",
+    title: "Mini golf",
+    icon: "/icons/minigolf.svg",
+  },
+  {
+    id: 3,
+    url: "/images/atributos/fogateras.png",
+    title: "Fogateras",
+    icon: "/icons/fogata.svg",
+  },
+  {
+    id: 4,
+    url: "/images/atributos/juegos-infantiles.png",
+    title: "Juegos Infantiles",
+    icon: "/icons/parque.svg",
+  },
+];
+
+const sitiosCercanosData = [
+  {
+    id: 1,
+    title: "PLAYA",
+    subtitle: "Farallones",
+    url: "/images/sitios-cercanos/playa-farallones.png",
+  },
+  {
+    id: 2,
+    title: "PLAYA",
+    subtitle: "León Dormido",
+    url: "/images/sitios-cercanos/playa-leon-dormido.png",
+  },
+  {
+    id: 3,
+    title: "PLAYA",
+    subtitle: "Chocalla",
+    url: "/images/sitios-cercanos/playa-chocalla.png",
+  },
+  {
+    id: 4,
+    title: "REAL CLUB",
+    subtitle: "de Lima",
+    url: "/images/sitios-cercanos/real-club.png",
+  },
+  {
+    id: 5,
+    title: "BOULEVARD",
+    subtitle: "de Asia",
+    url: "/images/sitios-cercanos/boulevard.png",
+  },
+];
+---
+
+<section class="py-16 md:py-20 lg:py-24">
+  <div class="container mx-auto px-6 md:px-12">
+    <!-- Title Section -->
+    <SectionTitle topText="ATRIBUTOS DEL" bottomText="CONDOMINIO" />
+
+    <div class="flex">
+      <div>
+        <div>
+          <img
+            src="/icons/gotas.svg"
+            alt="Decoración"
+            class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
+          />
+          <p>Desde 120 m2</p>
+        </div>
+        <div>
+          <img
+            src="/icons/gotas.svg"
+            alt="Decoración"
+            class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
+          />
+          <p>Parques y jardines</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        {
+          atributosData.map((item) => (
+            <div class="mb-8 md:mb-12 lg:mb-16">
+              <div class="relative group cursor-pointer">
+                <div class="overflow-hidden rounded-3xl shadow-lg mb-6">
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    class="w-full h-40 md:h-72 lg:h-44 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-tertiary text-white px-4 py-0.5 md:px-6 md:py-1 rounded-xl shadow-lg flex items-center space-x-2">
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    class="w-6 h-6 md:w-8 md:h-8"
+                  />
+                  <h4 class="text-sm md:text-base lg:text-lg font-semibold text-center whitespace-nowrap">
+                    {item.title}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

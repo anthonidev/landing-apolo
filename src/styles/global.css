@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f4b319;
+  --color-secondary: #008c9a;
+  --color-tertiary: #00b5d3;
+  --font-family-sans: "Montserrat", system-ui, sans-serif;
+}
+
+.global-background {
+  background-image: url("/images/fondo-global.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

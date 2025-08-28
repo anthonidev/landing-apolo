@@ -1,0 +1,31 @@
+---
+export interface Props {
+  topText: string;
+  bottomText: string;
+}
+
+const { topText, bottomText } = Astro.props;
+---
+
+<div class="flex items-center justify-center mb-12 md:mb-16">
+  <img
+    src="/icons/gotas.svg"
+    alt="Decoración"
+    class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
+  />
+
+  <div class="text-center">
+    <h2 class="text-secondary text-2xl md:text-3xl lg:text-4xl mb-2 leading-0">
+      {topText}
+    </h2>
+    <h3 class="text-primary text-3xl md:text-4xl lg:text-5xl font-black">
+      {bottomText}
+    </h3>
+  </div>
+
+  <img
+    src="/icons/gotas.svg"
+    alt="Decoración"
+    class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 scale-x-[-1]"
+  />
+</div>
