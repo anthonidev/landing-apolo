@@ -1,0 +1,31 @@
+{
+  "name": "Condominio Apolo - Huertas Inmobiliaria",
+  "short_name": "Condominio Apolo",
+  "description": "Condominio exclusivo en Asia - Lotes desde $49,999 al contado. A pasos de la playa en Panamericana Sur Km 92.",
+  "start_url": "https://condominio-apolo.inmobiliariahuertas.com/",
+  "id": "https://condominio-apolo.inmobiliariahuertas.com/",
+  "scope": "https://condominio-apolo.inmobiliariahuertas.com/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f4b319",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.webp",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "real-estate",
+    "business",
+    "property"
+  ],
+  "orientation": "portrait-primary"
+}

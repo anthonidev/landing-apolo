@@ -1,0 +1,213 @@
+---
+// Structured Data for Real Estate Project - Condominio Apolo
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#organization",
+      name: "Huertas Inmobiliaria",
+      alternateName: "Huertas Inmobiliaria Perú",
+      url: "https://condominio-apolo.inmobiliariahuertas.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://condominio-apolo.inmobiliariahuertas.com/icons/logo.svg",
+        width: "200",
+        height: "80",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+51-1-234-5678",
+        contactType: "sales",
+        areaServed: "PE",
+        availableLanguage: "Spanish",
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Panamericana Sur Km 92",
+        addressLocality: "Asia",
+        addressRegion: "Lima",
+        postalCode: "15842",
+        addressCountry: "PE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -12.7785,
+        longitude: -76.63628,
+      },
+      sameAs: [
+        "https://www.facebook.com/HuertasInmobiliaria",
+        "https://www.instagram.com/huertas_inmobiliaria",
+      ],
+    },
+    {
+      "@type": "ResidentialComplex",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#project",
+      name: "Condominio Apolo",
+      alternateName: "Proyecto Apolo Asia",
+      description:
+        "Condominio exclusivo en Asia - Lotes desde $49,999 al contado. Inicial desde $2,999. A pasos de la playa en Panamericana Sur Km 92. Proyecto inmobiliario de Huertas Inmobiliaria.",
+      url: "https://condominio-apolo.inmobiliariahuertas.com",
+      image: [
+        "https://condominio-apolo.inmobiliariahuertas.com/images/hero-banner.webp",
+        "https://condominio-apolo.inmobiliariahuertas.com/images/avances/areas-verdes.webp",
+        "https://condominio-apolo.inmobiliariahuertas.com/images/avances/canchas-deportivas.webp",
+        "https://condominio-apolo.inmobiliariahuertas.com/images/avances/lotizacion.webp",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Panamericana Sur Km 92",
+        addressLocality: "Asia",
+        addressRegion: "Lima",
+        postalCode: "15842",
+        addressCountry: "PE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -12.7785,
+        longitude: -76.63628,
+      },
+      developer: {
+        "@id": "https://condominio-apolo.inmobiliariahuertas.com/#organization",
+      },
+      amenityFeature: [
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Gimnasio al aire libre",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Mini golf",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Fogateras",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Juegos Infantiles",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Áreas verdes",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Canchas deportivas",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Parques y jardines",
+          value: true,
+        },
+      ],
+      numberOfRooms: "Variable",
+      floorSize: {
+        "@type": "QuantitativeValue",
+        minValue: 120,
+        unitCode: "MTK",
+      },
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Precio inicial",
+          price: "2999",
+          priceCurrency: "USD",
+          description: "Inicial desde $2,999",
+        },
+        {
+          "@type": "Offer",
+          name: "Precio al contado",
+          price: "49999",
+          priceCurrency: "USD",
+          description: "Al contado desde $49,999",
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#website",
+      url: "https://condominio-apolo.inmobiliariahuertas.com",
+      name: "Condominio Apolo - Lotes en Asia",
+      description:
+        "Condominio Apolo en Asia - Lotes desde $49,999 al contado. A pasos de la playa en Panamericana Sur Km 92.",
+      publisher: {
+        "@id": "https://condominio-apolo.inmobiliariahuertas.com/#organization",
+      },
+      potentialAction: [
+        {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate:
+              "https://condominio-apolo.inmobiliariahuertas.com/?s={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
+        },
+      ],
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#webpage",
+      url: "https://condominio-apolo.inmobiliariahuertas.com",
+      name: "Condominio Apolo - Arena y sol tu casa a pasos de la playa",
+      isPartOf: {
+        "@id": "https://condominio-apolo.inmobiliariahuertas.com/#website",
+      },
+      about: {
+        "@id": "https://condominio-apolo.inmobiliariahuertas.com/#project",
+      },
+      description:
+        "Condominio exclusivo en Asia - Lotes desde $49,999 al contado. Inicial desde $2,999. A pasos de la playa en Panamericana Sur Km 92.",
+      breadcrumb: {
+        "@id": "https://condominio-apolo.inmobiliariahuertas.com/#breadcrumb",
+      },
+      inLanguage: "es-ES",
+      potentialAction: [
+        {
+          "@type": "ReadAction",
+          target: ["https://condominio-apolo.inmobiliariahuertas.com"],
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: "https://condominio-apolo.inmobiliariahuertas.com",
+        },
+      ],
+    },
+    {
+      "@type": "Place",
+      "@id": "https://condominio-apolo.inmobiliariahuertas.com/#place",
+      name: "Asia, Lima, Perú",
+      description:
+        "Zona exclusiva en Asia, Lima, cerca de las mejores playas del sur",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -12.7785,
+        longitude: -76.63628,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Asia",
+        addressRegion: "Lima",
+        addressCountry: "PE",
+      },
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

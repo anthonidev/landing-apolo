@@ -4,86 +4,100 @@ import SectionTitle from "./SectionTitle.astro";
 const avancesData = [
   {
     id: 1,
-    url: "/images/avances/areas-verdes.png",
+    url: "/images/avances/areas-verdes.webp",
     title: "Áreas Verdes",
   },
   {
     id: 2,
-    url: "/images/avances/canchas-deportivas.png",
+    url: "/images/avances/canchas-deportivas.webp",
     title: "Canchas Deportivas",
   },
   {
     id: 3,
-    url: "/images/avances/lotizacion.png",
+    url: "/images/avances/lotizacion.webp",
     title: "Lotización",
   },
   {
     id: 4,
-    url: "/images/avances/portico-de-ingreso.png",
+    url: "/images/avances/portico-de-ingreso.webp",
     title: "Pórtico de Ingreso",
   },
   {
     id: 5,
-    url: "/images/avances/veredas.png",
+    url: "/images/avances/veredas.webp",
     title: "Veredas",
   },
 ];
 ---
 
-<section class="py-16 md:py-20 lg:py-24">
-  <div class="container mx-auto px-6 md:px-12">
+<section class="py-16 md:py-20 lg:py-24" aria-labelledby="avances-title">
+  <main class="container mx-auto px-6 md:px-12">
     <!-- Title Section -->
-    <SectionTitle topText="AVANCES" bottomText="DE OBRA" />
+    <header>
+      <SectionTitle topText="AVANCES" bottomText="DE OBRA" />
+      <h2 id="avances-title" class="sr-only">
+        Avances de Obra del Condominio Apolo
+      </h2>
+    </header>
 
     <!-- Carousel Container -->
-    <div
+    <section
       class="relative overflow-hidden cursor-grab select-none"
       id="carousel-container"
+      role="region"
+      aria-label="Carrusel de avances de obra"
     >
-      <div
+      <section
         class="flex transition-transform duration-700 ease-in-out"
         id="carousel-track"
+        role="group"
+        aria-live="polite"
       >
         {
           avancesData.map((item, index) => (
-            <div
+            <article
               class="carousel-slide flex-shrink-0 px-2 md:px-4"
               data-index={index}
+              aria-label={`Avance ${index + 1} de ${avancesData.length}: ${item.title}`}
             >
               <div class="relative group cursor-pointer">
-                <div class="overflow-hidden rounded-3xl shadow-lg mb-6">
+                <figure class="overflow-hidden rounded-3xl shadow-lg mb-6 transition-all duration-500 hover:shadow-2xl">
                   <img
                     src={item.url}
-                    alt={item.title}
-                    class="w-full h-64 md:h-72 lg:h-80 object-cover transition-transform duration-300 group-hover:scale-105"
+                    alt={`Imagen de avance de ${item.title} en el Condominio Apolo`}
+                    class="w-full h-64 md:h-72 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                </div>
-
-                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-tertiary text-white px-4 py-0.5 md:px-6 md:py-1 rounded-xl shadow-lg">
-                  <h4 class="text-sm md:text-base lg:text-lg font-semibold text-center whitespace-nowrap">
-                    {item.title}
-                  </h4>
-                </div>
+                  <figcaption class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-tertiary text-white px-4 py-0.5 md:px-6 md:py-1 rounded-xl shadow-lg transition-all duration-300 group-hover:bg-primary">
+                    <h3 class="text-sm md:text-base lg:text-lg font-semibold text-center whitespace-nowrap">
+                      {item.title}
+                    </h3>
+                  </figcaption>
+                </figure>
               </div>
-            </div>
+            </article>
           ))
         }
-      </div>
-    </div>
+      </section>
+    </section>
 
     <!-- Dots Indicator -->
-    <div class="flex justify-center mt-6 md:mt-8 space-x-2" id="dots-container">
+    <nav
+      class="flex justify-center mt-6 md:mt-8 space-x-2"
+      id="dots-container"
+      aria-label="Navegación del carrusel"
+    >
       {
-        avancesData.map((_, index) => (
+        avancesData.map((item, index) => (
           <button
-            class="w-3 h-3 rounded-full transition-colors duration-300 dot"
+            class="w-3 h-3 rounded-full transition-all duration-300 dot hover:scale-125 hover:shadow-md"
             data-index={index}
-            aria-label={`Ir a imagen ${index + 1}`}
+            aria-label={`Ir a imagen ${index + 1}: ${item.title}`}
+            type="button"
           />
         ))
       }
-    </div>
-  </div>
+    </nav>
+  </main>
 </section>
 
 <script>

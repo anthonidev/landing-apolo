@@ -1,41 +1,127 @@
 ---
 import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import StructuredData from "../components/StructuredData.astro";
 import Navbar from "../components/Navbar.astro";
 import HeroSection from "../components/HeroSection.astro";
 import AvancesObras from "../components/AvancesObras.astro";
 import AtributosCondominio from "../components/AtributosCondominio.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <SEO
+      title="Condominio Apolo - Lotes en Asia Km 92 | Huertas Inmobiliaria"
+      description="🏖️ Condominio exclusivo en Asia - Lotes desde $49,999 al contado. Inicial desde $2,999. A pasos de la playa en Panamericana Sur Km 92. ✨ Gimnasio, mini golf, fogateras, juegos infantiles. Proyecto de Huertas Inmobiliaria en zona exclusiva de Lima Sur."
+      canonical="https://condominio-apolo.inmobiliariahuertas.com"
+      openGraph={{
+        basic: {
+          title:
+            "Condominio Apolo - Lotes en Asia Km 92 | Huertas Inmobiliaria",
+          type: "website",
+          image:
+            "https://condominio-apolo.inmobiliariahuertas.com/images/hero-banner.webp",
+          url: "https://condominio-apolo.inmobiliariahuertas.com",
+        },
+        optional: {
+          description:
+            "Condominio exclusivo en Asia - Lotes desde $49,999 al contado. A pasos de la playa en Panamericana Sur Km 92. Proyecto de Huertas Inmobiliaria.",
+          siteName: "Condominio Apolo - Huertas Inmobiliaria",
+          locale: "es_ES",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@HuertasInmobiliaria",
+        title: "Condominio Apolo - Lotes en Asia Km 92",
+        description:
+          "🏖️ Lotes desde $49,999 al contado. Inicial desde $2,999. A pasos de la playa en Asia.",
+        image:
+          "https://condominio-apolo.inmobiliariahuertas.com/images/hero-banner.webp",
+      }}
+    />
+
+    <!-- Structured Data -->
+    <StructuredData />
+
+    <!-- Additional Keywords -->
+    <meta
+      name="keywords"
+      content="condominio asia, lotes asia, casas playa asia, inmobiliaria huertas, condominio apolo, lotes panamericana sur, terrenos asia lima, inmobiliaria peru, lotes playa asia, condominio cerrado asia, proyecto inmobiliario lima sur, lotes financiados asia, terrenos asia km 92, huertas inmobiliaria peru, casas asia lima, lotes exclusivos asia, condominio privado asia"
+    />
+
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      href="/images/hero-banner.webp"
+      as="image"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      href="/icons/logo.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <title>Landing Apolo - Arena y Sol tu casa a pasos de la playa</title>
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f4b319" />
+    <meta name="msapplication-TileColor" content="#f4b319" />
   </head>
   <body>
-    <div
-      class="bg-cover bg-center bg-no-repeat flex flex-col min-h-[600px]"
-      style="background-image: url('/images/hero-banner.png');"
-    >
-      <div class="absolute inset-0 bg-black/10"></div>
-      <div class="relative z-10 flex flex-col">
-        <Navbar />
-        <HeroSection />
-      </div>
-    </div>
+    <header>
+      <Navbar />
+    </header>
 
-    <!-- Avance de obras -->
-    <div class="global-background min-h-[3000px]">
-      <AvancesObras />
-      <AtributosCondominio />
-    </div>
+    <main>
+      <section
+        id="inicio"
+        class="bg-cover bg-center bg-no-repeat flex flex-col min-h-[600px] lg:min-h-[800px] xl:min-h-[1200px]"
+        style="background-image: url('/images/hero-banner.webp');"
+        aria-label="Sección principal con información de precios y ubicación"
+      >
+        <div class="relative z-10 flex flex-col h-full">
+          <HeroSection />
+        </div>
+      </section>
+
+      <div
+        class="bg-cover bg-center bg-no-repeat flex flex-col xl:pt-64"
+        style="background-image: url('/images/fondo-global.webp');"
+      >
+        <div id="avances">
+          <AvancesObras />
+        </div>
+
+        <div id="atributos">
+          <AtributosCondominio />
+        </div>
+
+        <div id="contacto">
+          <ContactForm />
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+    <script>
+      import AOS from "aos";
+      AOS.init();
+    </script>
   </body>
 </html>

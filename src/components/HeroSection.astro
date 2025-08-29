@@ -2,73 +2,94 @@
 
 ---
 
-<section class="flex justify-between gap-20 lg:gap-32 flex-col">
-  <div class="text-white flex flex-col text-center">
+<section
+  class="flex min-h-[600px] lg:min-h-[800px] xl:min-h-[1200px] justify-between gap-20 lg:gap-32 flex-col py-20 lg:py-32 xl:py-60"
+>
+  <header class="text-white flex flex-col text-center">
+    <h1 class="sr-only">
+      Condominio Apolo - Arena y sol tu casa a pasos de la playa
+    </h1>
     <p
       class="block text-2xl md:text-3xl lg:text-5xl font-bold mb-2 leading-0.5 lg:leading-5"
+      aria-label="Arena y sol"
     >
       Arena y sol
     </p>
-    <p class="block text-lg md:text-xl lg:text-2xl font-semibold mb-2">
+    <p class="block text-lg md:text-xl lg:text-2xl font-semibold mb-2 xl:py-1">
       tu casa a pasos de la
     </p>
     <p
       class="block tracking-tighter text-6xl md:text-8xl lg:text-9xl font-black leading-4 lg:leading-14"
+      aria-label="Playa"
     >
       PLAYA
     </p>
-  </div>
+  </header>
 
-  <div
+  <section
     class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 xl:gap-24"
   >
     <!-- Ubicación -->
-    <div class="flex items-center">
+    <address class="flex items-center not-italic">
       <img
         src="/icons/maps.svg"
-        alt="Ubicación"
-        class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 -mr-4"
+        alt="Icono de ubicación"
+        class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 -mr-4 transition-transform duration-300 hover:scale-110"
       />
-      <div class="text-white text-center">
+      <hgroup class="text-white text-center">
         <p class="text-lg md:text-xl lg:text-2xl font-medium mb-1 leading-0.5">
           Lotes en
         </p>
-        <p class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-1">ASIA</p>
+        <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-1">
+          ASIA
+        </h3>
         <p class="text-sm md:text-base lg:text-lg font-light leading-0.5">
-          panam. Sur km.92
+          Panamericana Sur Km. 92
         </p>
-      </div>
-    </div>
+      </hgroup>
+    </address>
 
     <!-- Pricing Cards -->
-    <div class="flex">
+    <section class="flex" role="group" aria-label="Opciones de precios">
       <!-- Card Inicial -->
-      <div
-        class="bg-white text-secondary py-3 px-10 lg:py-4 lg:px-8 flex justify-center items-center flex-col z-0 rounded-2xl shadow-2xl"
+      <article
+        class="bg-white text-secondary py-3 px-10 lg:py-4 lg:px-8 flex justify-center items-center flex-col z-0 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-3xl"
+        aria-labelledby="precio-inicial"
       >
-        <p
+        <header
+          id="precio-inicial"
           class="text-sm md:text-base font-medium text-center mb-1 leading-0.5"
         >
           inicial desde
-        </p>
-        <p
+        </header>
+        <data
+          value="2999"
           class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-center tracking-tight"
+          aria-label="Dos mil novecientos noventa y nueve dólares"
         >
           $2,999
-        </p>
-      </div>
+        </data>
+      </article>
 
       <!-- Card Al contado -->
-      <div
-        class="bg-gradient-to-t from-[#e98f0d] to-primary text-white rounded-2xl shadow-2xl -ml-4 my-1 px-12 lg:my-2 lg:px-10 py-2 flex justify-center flex-col items-center"
+      <article
+        class="bg-gradient-to-t from-[#e98f0d] to-primary text-white rounded-2xl shadow-2xl -ml-4 my-1 px-12 lg:my-2 lg:px-10 py-2 flex justify-center flex-col items-center transition-all duration-300 hover:scale-105 hover:shadow-3xl"
+        aria-labelledby="precio-contado"
       >
-        <p class="text-xs md:text-sm font-medium text-center mb-1 leading-0.5">
+        <header
+          id="precio-contado"
+          class="text-xs md:text-sm font-medium text-center mb-1 leading-0.5"
+        >
           Al contado desde
-        </p>
-        <p class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center">
+        </header>
+        <data
+          value="49999"
+          class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center"
+          aria-label="Cuarenta y nueve mil novecientos noventa y nueve dólares"
+        >
           $49,999
-        </p>
-      </div>
-    </div>
-  </div>
+        </data>
+      </article>
+    </section>
+  </section>
 </section>

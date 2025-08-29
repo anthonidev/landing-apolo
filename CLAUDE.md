@@ -43,6 +43,6 @@ pnpm install
 - `src/styles/`: Global stylesheets
 - `public/`: Static assets (favicon, icons, images)
   - `public/icons/`: SVG icons (logo.svg, maps.svg)
-  - `public/images/`: Image assets (hero-banner.png)
+  - `public/images/`: Image assets (hero-banner.webp)
 
 The project uses Astro's file-based routing where pages in `src/pages/` automatically become routes based on their filename.
