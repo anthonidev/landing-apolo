@@ -8,21 +8,22 @@ export interface LeadData {
 }
 
 export async function submitLead(data: LeadData): Promise<{ success: boolean; message?: string }> {
-  const apiUrl = import.meta.env.LANDING_API_URL;
-  
+  const apiUrl = import.meta.env.PUBLIC_LANDING_API_URL;
+  console.log('API URL:', apiUrl);
   if (!apiUrl) {
-    throw new Error('LANDING_API_URL environment variable is not configured');
+    throw new Error('PUBLIC_LANDING_API_URL environment variable is not configured');
   }
 
   try {
-    const response = await fetch(`${apiUrl}/api/leads`, {
+    console.log('Submitting lead data:', data);
+    const response = await fetch(`${apiUrl}/lead`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-
+    console.log('Response status:', response.status);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

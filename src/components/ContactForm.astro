@@ -248,6 +248,81 @@
   </div>
 </section>
 
+<!-- Success Modal -->
+<div id="successModal" class="fixed inset-0 z-50 hidden">
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-white/30 backdrop-blur-sm transition-all"></div>
+
+  <!-- Modal Container -->
+  <div
+    id="modalContainer"
+    class="fixed inset-0 flex items-center justify-center p-4"
+  >
+    <!-- Modal Content -->
+    <div
+      class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative transform transition-all"
+    >
+      <!-- Close Button -->
+      <button
+        id="closeModal"
+        class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+        aria-label="Cerrar modal"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Success Icon -->
+      <div class="text-center mb-6">
+        <div
+          class="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+
+        <!-- Success Message -->
+        <h3 class="text-xl font-bold text-secondary mb-2">
+          ¡Enviado correctamente!
+        </h3>
+        <p class="text-gray-600">
+          Gracias por tu interés. Nos contactaremos contigo lo antes posible.
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center">
+        <button
+          id="modalCloseBtn"
+          class="bg-gradient-to-t from-[#e98f0d] to-primary text-white font-bold py-3 px-8 rounded-full transition-colors duration-200 hover:opacity-90"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   import type { LeadData } from "../utils/api";
   import { submitLead } from "../utils/api";
@@ -259,6 +334,18 @@
     "messageText"
   ) as HTMLParagraphElement;
 
+  // Modal elements
+  const successModal = document.getElementById(
+    "successModal"
+  ) as HTMLDivElement;
+  const modalContainer = document.getElementById(
+    "modalContainer"
+  ) as HTMLDivElement;
+  const closeModal = document.getElementById("closeModal") as HTMLButtonElement;
+  const modalCloseBtn = document.getElementById(
+    "modalCloseBtn"
+  ) as HTMLButtonElement;
+
   // Error message elements
   const firstNameError = document.getElementById(
     "firstNameError"
@@ -268,6 +355,34 @@
   ) as HTMLDivElement;
   const emailError = document.getElementById("emailError") as HTMLDivElement;
   const phoneError = document.getElementById("phoneError") as HTMLDivElement;
+
+  // Modal functions
+  function showModal() {
+    successModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+  }
+
+  function hideModal() {
+    successModal.classList.add("hidden");
+    document.body.style.overflow = ""; // Restore scrolling
+  }
+
+  function clearForm() {
+    form.reset();
+    clearErrors();
+
+    // Reset labels to initial state
+    inputs.forEach((input) => {
+      const target = input as HTMLInputElement;
+      const label = document.querySelector(
+        `label[for="${target.id}"]`
+      ) as HTMLLabelElement;
+      if (label) {
+        label.classList.remove("top-1", "text-xs", "text-white");
+        label.classList.add("top-3", "md:top-4", "text-base", "text-white/70");
+      }
+    });
+  }
 
   // Clear all error messages
   function clearErrors() {
@@ -423,30 +538,12 @@
       const result = await submitLead(leadData);
 
       if (result.success) {
-        showMessage("¡Gracias! Nos contactaremos contigo pronto", "success");
-        form.reset();
-        clearErrors();
-
-        // Reset labels
-        inputs.forEach((input) => {
-          const target = input as HTMLInputElement;
-          const label = document.querySelector(
-            `label[for="${target.id}"]`
-          ) as HTMLLabelElement;
-          if (label) {
-            label.classList.remove("top-1", "text-xs", "text-white");
-            label.classList.add(
-              "top-3",
-              "md:top-4",
-              "text-base",
-              "text-white/70"
-            );
-          }
-        });
+        showModal();
       } else {
         showMessage(result.message || "Error al enviar el formulario", "error");
       }
     } catch (error) {
+      console.error("Error submitting form:", error);
       showMessage(
         "Error al enviar el formulario. Inténtalo de nuevo.",
         "error"
@@ -466,4 +563,31 @@
     submitBtn.disabled = false;
     submitBtn.textContent = "SOLICITAR INFORMACIÓN";
   }
+
+  // Modal close event listeners
+  closeModal.addEventListener("click", () => {
+    hideModal();
+    clearForm();
+  });
+
+  modalCloseBtn.addEventListener("click", () => {
+    hideModal();
+    clearForm();
+  });
+
+  // Close modal when clicking outside of it (both on backdrop and container)
+  modalContainer.addEventListener("click", (e) => {
+    if (e.target === modalContainer) {
+      hideModal();
+      clearForm();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !successModal.classList.contains("hidden")) {
+      hideModal();
+      clearForm();
+    }
+  });
 </script>
