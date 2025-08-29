@@ -7,16 +7,17 @@ export interface Props {
 const { topText, bottomText } = Astro.props;
 ---
 
-<div class="flex items-center justify-center my-12 md:my-16" role="banner">
+<div class="flex items-center justify-center my-12 md:my-16" role="banner" data-aos="fade-down" data-aos-delay="100" data-aos-once="true">
   <img
     src="/icons/gotas.svg"
     alt=""
     class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 animate-float transition-transform duration-300 hover:scale-125"
     role="presentation"
     aria-hidden="true"
+    data-aos="fade-right" data-aos-delay="200" data-aos-once="true"
   />
 
-  <hgroup class="text-center">
+  <hgroup class="text-center" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
     <p
       class="text-secondary text-2xl md:text-3xl lg:text-4xl mb-2 leading-0 transition-colors duration-300 hover:text-primary"
     >
@@ -36,5 +37,6 @@ const { topText, bottomText } = Astro.props;
     role="presentation"
     aria-hidden="true"
     style="animation-delay: 1.5s;"
+    data-aos="fade-left" data-aos-delay="200" data-aos-once="true"
   />
 </div>
