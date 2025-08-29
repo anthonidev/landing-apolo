@@ -106,13 +106,13 @@ const sitiosCercanosData = [
         class="grid grid-cols-1 lg:grid-cols-2 gap-4" 
         role="group" 
         aria-label="Atributos del condominio"
-        data-aos="fade-up" data-aos-delay="800" data-aos-once="true"
+        data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
       >
         {
           atributosData.map((item, index) => (
               <article 
                 class="relative group"
-                data-aos="flip-up" data-aos-delay={`${1000 + (index * 200)}`} data-aos-once="true"
+                data-aos="flip-up" data-aos-delay={`${400 + (index * 100)}`} data-aos-once="true"
               >
                 <figure class="overflow-hidden rounded-3xl shadow-lg mb-6 transition-all duration-700 ease-out hover:shadow-2xl hover:scale-102">
                   <header class="absolute top-0 left-0 right-0 bg-white/90 justify-center px-4 py-2 md:px-6 md:py-3 rounded-t-3xl shadow-lg flex items-center space-x-2 min-h-[60px] md:min-h-[70px] transition-all duration-500 ease-out group-hover:bg-white">
@@ -129,6 +129,8 @@ const sitiosCercanosData = [
                     src={item.url}
                     alt={`Imagen de ${item.title} en el Condominio Apolo`}
                     class="w-full h-48 md:h-60 xl:h-[450px] transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </figure>
               </article>
@@ -140,7 +142,7 @@ const sitiosCercanosData = [
     <aside class="flex flex-col">
       <header 
         class="flex justify-around my-10 pt-20"
-        data-aos="fade-down" data-aos-delay="1200" data-aos-once="true"
+        data-aos="fade-down" data-aos-delay="600" data-aos-once="true"
       >
         <img
           src="/images/sitios-cercanos/title.webp"
@@ -150,12 +152,12 @@ const sitiosCercanosData = [
         <h3 class="sr-only">Sitios Cercanos al Condominio Apolo</h3>
       </header>
 
-      <section class="grid  grid-cols-1 xl:grid-cols-3  gap-4" data-aos="fade-up" data-aos-delay="1400" data-aos-once="true">
+      <section class="grid  grid-cols-1 xl:grid-cols-3  gap-4" data-aos="fade-up" data-aos-delay="700" data-aos-once="true">
         {
           sitiosCercanosData.slice(0, 3).map((item, index) => (
             <article 
               class="mb-8 md:mb-12 lg:mb-16"
-              data-aos="zoom-in" data-aos-delay={`${1600 + (index * 150)}`} data-aos-once="true"
+              data-aos="zoom-in" data-aos-delay={`${800 + (index * 100)}`} data-aos-once="true"
             >
               <figure class="relative group cursor-pointer">
                 <!-- Stacked white layers behind the main card -->
@@ -177,6 +179,8 @@ const sitiosCercanosData = [
                     src={item.url}
                     alt={`${item.title} ${item.subtitle} cerca del Condominio Apolo`}
                     class="w-full h-48 md:h-60 lg:h-72 object-cover rounded-2xl transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
 
                   <!-- Bottom label -->
@@ -192,12 +196,12 @@ const sitiosCercanosData = [
         }
       </section>
       
-        <section class="grid grid-cols-1 xl:grid-cols-2 gap-4 " data-aos="fade-up" data-aos-delay="2000" data-aos-once="true">
+        <section class="grid grid-cols-1 xl:grid-cols-2 gap-4 " data-aos="fade-up" data-aos-delay="1100" data-aos-once="true">
           {
             sitiosCercanosData.slice(3).map((item, index) => (
               <article 
                 class="mb-8 md:mb-12 lg:mb-16 "
-                data-aos="zoom-in" data-aos-delay={`${2200 + (index * 150)}`} data-aos-once="true"
+                data-aos="zoom-in" data-aos-delay={`${1200 + (index * 100)}`} data-aos-once="true"
               >
                 <figure class="relative group cursor-pointer">
                   <!-- Stacked white layers behind the main card -->
@@ -219,6 +223,8 @@ const sitiosCercanosData = [
                       src={item.url}
                       alt={`${item.title} ${item.subtitle} cerca del Condominio Apolo`}
                       class="w-full h-48 md:h-60 lg:h-72 object-cover rounded-2xl transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     <!-- Bottom label -->
