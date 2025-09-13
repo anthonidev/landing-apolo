@@ -539,16 +539,16 @@
 
       if (result.success) {
         // Facebook Pixel Lead event
-        try {
-          // Ensure fbq exists
-          if (typeof (window as any).fbq !== "function") {
-            (window as any).fbq = function () { ((window as any)._fbq = (window as any)._fbq || []).push(arguments); };
-          }
-          (window as any).fbq("track", "Lead", {
-            content_name: "Condominio Apolo - Formulario",
-            status: "submitted",
-          });
-        } catch {}
+        // try {
+        //   // Ensure fbq exists
+        //   if (typeof (window as any).fbq !== "function") {
+        //     (window as any).fbq = function () { ((window as any)._fbq = (window as any)._fbq || []).push(arguments); };
+        //   }
+        //   (window as any).fbq("track", "Lead", {
+        //     content_name: "Condominio Apolo - Formulario",
+        //     status: "submitted",
+        //   });
+        // } catch {}
 
         showModal();
       } else {
