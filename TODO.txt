@@ -1,6 +1,0 @@
-Para finalizar quiero que hagas las siguientes tareas
-
-- quiero que agregues al navbar los enlaces a las diferentes secciones
-- quiero que el navbar se mantenga fijo en la parte superior al hacer scroll
-- cuando esta en la parte superior el navbar tiene fondo trasparente, al hacer scroll tiene que tener
-un fondo blur 

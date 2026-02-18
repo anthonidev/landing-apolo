@@ -18,5 +18,12 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild",
+      "sharp"
+    ]
   }
 }
